@@ -14,7 +14,7 @@
     <header>
         <nav>
             <div class="logo">MyPortfolio</div>
-            <!-- 모바일용 햄버거 버튼 (나중에 JS로 동작시킬 예정) -->
+
             <button class="hamburger" aria-label="메뉴 열기">☰</button>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
@@ -30,15 +30,17 @@
 
     <!-- 메인 콘텐츠 영역 -->
     <main>
-        <!-- 1. Hero 섹션 (인사말) -->
+        <!-- 1. Hero 섹션 (인사말) -->a
         <section id="hero">
-            <h1>안녕하세요, 프론트엔드 개발자 OOO입니다.</h1>
-            <p>사용자 경험을 중요하게 생각합니다.</p>
+            <br>
+            <h1>안녕하세요, 개발자를 꿈꾸는 마리너 신재은입니다.</h1>
+            <p>경험을 중요하게 생각합니다.</p>
+            <br>
             <a href="#contact" class="cta-btn">연락하기</a>
         </section>
 
         <!-- 2. About 섹션 (자기소개) -->
-        <section id="about">
+        <section id="about" class="fade-in">
             <h2>About Me</h2>
             <!-- 프로필 이미지가 들어갈 곳 (alt 속성 필수!) -->
             <img src="images/profile.jpg" alt="OOO의 프로필 사진">
@@ -46,16 +48,19 @@
         </section>
 
         <!-- 3. Skills 섹션 (기술 스택) -->
-        <section id="skills">
+        <section id="skills" class="fade-in">
             <h2>Skills</h2>
+            <br>
             <ul>
                 <li>HTML / CSS</li>
                 <li>JavaScript</li>
+                <li>Linux</li>
+                <li>DBMS</li>
             </ul>
         </section>
 
         <!-- 4. Projects 섹션 (깃허브 API로 채워질 곳) -->
-        <section id="projects">
+        <section id="projects" class="fade-in">
         <h2>My Projects</h2>
         <!-- 깃허브 프로젝트가 들어갈 빈 공간 -->
         <div id="github-projects" class="projects-grid">
@@ -65,7 +70,7 @@
         </section>
 
         <!-- 5. Contact 섹션 (문의 폼) -->
-        <section id="contact">
+        <section id="contact" class="fade-in">
             <h2>Contact Me</h2>
             <form id="contact-form">
     <div>
@@ -82,7 +87,7 @@
     
     <div>
       <label for="message">메시지</label>
-      <textarea id="message" rows="5" placeholder="내용을 입력하세요"></textarea>
+      <textarea id="message" rows="2" placeholder="내용을 입력하세요"></textarea>
       <span class="error-msg" id="message-error"></span>
     </div>
     
@@ -93,7 +98,7 @@
 
     <!-- 푸터 (저작권 등) -->
     <footer>
-        <p>&copy; 2024 OOO. All rights reserved.</p>
+        <p>&copy; 2026 Jaeeun-Shin. All rights reserved.</p>
     </footer>
 
     <!-- 스크롤 탑 버튼 -->

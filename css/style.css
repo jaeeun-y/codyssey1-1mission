@@ -7,7 +7,7 @@
     --spacing: 20px;             /* 기본 간격 */
 }
 
-/* 다크 모드일 때 변할 색상들 (요구사항 충족) */
+/* 다크 모드일 때 변할 색상들 */
 [data-theme="dark"] {
     --bg-color: #121212;         /* 배경색: 어두운 색 */
     --text-color: #ffffff;       /* 글자색: 흰색 */
@@ -83,7 +83,7 @@ nav {
     margin-top: 20px;
 }
 
-/* 카드 기본 스타일 (나중에 JS로 만들 카드 모양을 미리 디자인) */
+/* 카드 기본 스타일 */
 .project-card {
     background-color: var(--card-bg);
     padding: 20px;
@@ -224,4 +224,17 @@ body {
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
+}
+
+/* 1. 애니메이션 초기 상태 (투명하고 살짝 아래에 위치) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px); /* 아래로 40px 이동해 있음 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 0.8초 동안 부드럽게 변화 */
+}
+
+/* 2. 화면에 나타났을 때의 상태 (완전 보이고 원래 위치로) */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

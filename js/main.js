@@ -169,3 +169,29 @@ async function fetchGitHubProjects() {
 
 // 함수 실행
 fetchGitHubProjects();
+
+// 1. 감시자(Observer) 설정
+const observerOptions = {
+    root: null, // 뷰포트(브라우저 화면)를 기준으로 감시
+    rootMargin: '0px',
+    threshold: 0.15 // 요소가 화면에 15% 정도 보일 때 작동
+};
+
+// 2. 감시자 생성
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        // 요소가 화면에 들어왔는지 확인
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // visible 클래스 추가하여 애니메이션 실행
+            observer.unobserve(entry.target); // 한 번 실행된 후에는 감시 중지 (계속 반복하려면 이 줄 삭제)
+        }
+    });
+}, observerOptions);
+
+// 3. HTML에서 fade-in 클래스를 가진 모든 요소 찾기
+const fadeElements = document.querySelectorAll('.fade-in');
+
+// 4. 찾은 요소들을 하나씩 감시자에게 관찰하라고 명령
+fadeElements.forEach(el => {
+    observer.observe(el);
+});
