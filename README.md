@@ -2,6 +2,10 @@
 
 https://jaeeun-y.github.io/codyssey1-1mission/
 
-<img width="3840" height="1080" alt="image" src="https://github.com/user-attachments/assets/365274a3-420e-4e0b-a533-73b3666452ed" />
 
-<img width="3840" height="1080" alt="image" src="https://github.com/user-attachments/assets/6ff5de80-10ef-4aa5-b28a-1f33d904ce28" />
+
+
+<img width="1909" height="1080" alt="스크린샷(2)" src="https://github.com/user-attachments/assets/736446c9-b94c-447a-b97d-8078e32fda93" />
+
+![Uploading 스크린샷(3).png…]()
+
