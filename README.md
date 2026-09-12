@@ -9,22 +9,7 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
-
-## Flex VS Grid
-<img width="923" height="565" alt="스크린샷 2026-09-12 오후 5 22 55" src="https://github.com/user-attachments/assets/c12647f7-8eb6-4e33-827e-d24f97295582" />  
-  
-  
-### Flex (1차원 레이아웃)  
-display: flex;  
-- 한 방향으로 정렬하는 데 최적화
-- 간단한 레이아웃이나 정렬이 필요한 경우에 유용하게 사용
-  
-
-### Grid (2차원 레이아웃)  
-display: grid;  
-- 아이템을 축소, 확장, 정렬하는 데 강력  
-- 행과 열을 동시에 제어해야 할 때 (격자 형태로 배열된 레이아웃)에서 적합
-  
+## index.html
   
 ## 배열 전환 방식 map/filter
 원본 배열을 변경하지 않고 새로운 배열을 반환하는 메서드
@@ -37,13 +22,36 @@ allback 함수를 각각의 요소에 대해 한번씩 순서대로 불러 그 �
 
 
 ## CSS
+  
+  
+## Flex VS Grid
+<img width="923" height="565" alt="스크린샷 2026-09-12 오후 5 22 55" src="https://github.com/user-attachments/assets/c12647f7-8eb6-4e33-827e-d24f97295582" />  
+  
+  
+### Flex (1차원 레이아웃)  
+display: flex;  
+- 한 방향으로 정렬하는 데 최적화
+- 간단한 레이아웃이나 정렬이 필요한 경우에 유용하게 사용
+  
+  
+### Grid (2차원 레이아웃)  
+display: grid;  
+- 아이템을 축소, 확장, 정렬하는 데 강력  
+- 행과 열을 동시에 제어해야 할 때 (격자 형태로 배열된 레이아웃)에서 적합
+
+auto-fit, minmax(250px, 1fr) #카드의 최소 너비 250px 최대 너비 1fr
+- 화면이 넓어지면 카드가 옆으로 붙고 좁아지면 알아서 밑으로 떨어지게 만드는 반응형 코드
+- 트랙의 최소 크기와 최대 크기 범위
 
 <img width="447" height="395" alt="image" src="https://github.com/user-attachments/assets/0f1d43c2-6bc8-42d7-bf4d-dd9527e32698" />
-
-
+  
+  
 margin: object와 화면의 외부 여백  
 padding: object 내의 내부여백
-
+  
+  
+<img width="495" height="964" alt="image" src="https://github.com/user-attachments/assets/30527b93-9aa7-4b2e-94aa-8d02464bb2d9" />
+  
 ### onclick 
 웹 페이지의 요소를 클릭할 때 발생하는 마우스 이벤트 속성
 
@@ -72,3 +80,11 @@ color: var(--text-color);
       
 ### let
 생성과정 - 1. 선언 2. 초기화 3. 할당
+
+
+opacity 0~1 투명도 0(invisible)~1(visible)
+  
+ease-out: 빠르게 시작
+ease-in : 천천히 시작
+  
+<img width="1280" height="320" alt="image" src="https://github.com/user-attachments/assets/55975b64-e846-4df5-bf3a-4e8e658681c4" />
