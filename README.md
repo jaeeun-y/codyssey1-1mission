@@ -10,7 +10,20 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
 
+## Flex VS Grid
+<img width="923" height="565" alt="스크린샷 2026-09-12 오후 5 22 55" src="https://github.com/user-attachments/assets/c12647f7-8eb6-4e33-827e-d24f97295582" />
 
+Flex (1차원 레이아웃)  
+display: flex;  
+- 한 방향으로 정렬하는 데 최적화
+- 간단한 레이아웃이나 정렬이 필요한 경우에 유용하게 사용  
+
+Grid (2차원 레이아웃)  
+display: grid;  
+- 아이템을 축소, 확장, 정렬하는 데 강력  
+- 행과 열을 동시에 제어해야 할 때 (격자 형태로 배열된 레이아웃)에서 적합  
+
+## 배열 전환 방식 map/filter
 
 ## CSS
 
