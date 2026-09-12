@@ -1,197 +1,144 @@
-// DOM 요소 선택
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const navItems = document.querySelectorAll('.nav-links a');
-const header = document.querySelector('header');
-const scrollTopBtn = document.querySelector('#scroll-top');
-
-// 1. 햄버거 메뉴 토글
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// 2. 부드러운 스크롤
-navItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault(); // 기본 앵커 이동 방지
-        const targetId = item.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // 모바일에서 메뉴 클릭 시 닫기
-        navLinks.classList.remove('active');
-    });
-});
-
-// 3. 스크롤 이벤트 (네비게이션 배경 & 스크롤 탑 버튼)
-window.addEventListener('scroll', () => {
-    // 스크롤 60px 이상: 네비게이션 그림자 추가
-    if (window.scrollY >= 60) {
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-    } else {
-        header.style.boxShadow = 'none';
-    }
-
-    // 스크롤 300px 이상: 탑 버튼 표시
-    if (window.scrollY >= 300) {
-        scrollTopBtn.style.display = 'block';
-    } else {
-        scrollTopBtn.style.display = 'none';
-    }
-});
-
-// 4. 스크롤 탑 버튼 클릭 이동
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
-
-// 1. 페이지 로드 시 로컬스토리지(localStorage) 상태 확인
-if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('dark-mode');
-    darkModeToggle.textContent = '☀️';
-}
-
-// 2. 다크모드 토글 버튼 클릭 이벤트
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    // 상태에 따라 아이콘 변경 및 로컬스토리지 저장
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-        darkModeToggle.textContent = '☀️';
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
-        darkModeToggle.textContent = '🌙';
-    }
-});
-
-// 폼과 입력 요소들 선택
-const contactForm = document.getElementById('contact-form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const messageInput = document.getElementById('message');
-
-// 에러 메시지 표시 요소 선택
-const nameError = document.getElementById('name-error');
-const emailError = document.getElementById('email-error');
-const messageError = document.getElementById('message-error');
-
-// 폼 제출 이벤트
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // 폼이 제출되면서 페이지가 새로고침 되는 기본 동작 막기
-
-    let isValid = true; // 유효성 통과 여부를 저장하는 변수
-
-    // 1. 이름 검사 (빈칸인지 확인)
-    if (nameInput.value.trim() === '') {
-        nameError.textContent = '이름을 입력해 주세요.';
-        isValid = false;
-    } else {
-        nameError.textContent = '';
-    }
-
-    // 2. 이메일 검사 (빈칸 및 이메일 형식 확인)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 이메일 형식을 확인하는 정규표현식
-    if (emailInput.value.trim() === '') {
-        emailError.textContent = '이메일을 입력해 주세요.';
-        isValid = false;
-    } else if (!emailRegex.test(emailInput.value)) {
-        emailError.textContent = '올바른 이메일 형식이 아닙니다.';
-        isValid = false;
-    } else {
-        emailError.textContent = '';
-    }
-
-    // 3. 메시지 검사 (빈칸인지 확인)
-    if (messageInput.value.trim() === '') {
-        messageError.textContent = '메시지를 입력해 주세요.';
-        isValid = false;
-    } else {
-        messageError.textContent = '';
-    }
-
-    // 4. 모든 검사를 통과했다면?
-    if (isValid) {
-        alert('메시지가 성공적으로 전송되었습니다!');
-        contactForm.reset(); // 폼 안의 내용 비우기
-    }
-});
-
-// GitHub API 연동
-async function fetchGitHubProjects() {
-    const username = 'jaeeun-y';
-    const container = document.getElementById('github-projects');
-
-    try {
-        // 1. GitHub API로 데이터 요청 (최근 업데이트된 6개만 가져오기)
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-        
-        // 2. 에러 처리 (아이디가 틀렸거나 네트워크 문제 등)
-        if (!response.ok) {
-            throw new Error('데이터를 불러오는데 실패했습니다.');
-        }
-
-        // 3. 데이터를 JSON 형태로 변환
-        const repos = await response.json();
-
-        // 4. 로딩 텍스트 지우기
-        container.innerHTML = '';
-
-        // 5. 저장소가 없을 경우의 UI
-        if (repos.length === 0) {
-            container.innerHTML = '<p>아직 공개된 프로젝트가 없습니다.</p>';
-            return;
-        }
-
-        // 6. 가져온 데이터를 HTML 카드로 만들어 화면에 추가
-        repos.forEach(repo => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            
-            // repo.name(제목), repo.description(설명), repo.html_url(링크) 사용
-            card.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description ? repo.description : '설명이 없습니다.'}</p>
-                <a href="${repo.html_url}" target="_blank">GitHub에서 보기 ➔</a>
-            `;
-            container.appendChild(card);
-        });
-
-    } catch (error) {
-        // 에러 발생 시 화면에 에러 메시지 표시
-        container.innerHTML = `<p class="error-msg">오류 발생: ${error.message}</p>`;
-    }
-}
-
-// 함수 실행
-fetchGitHubProjects();
-
-// 1. 감시자(Observer) 설정
-const observerOptions = {
-    root: null, // 뷰포트(브라우저 화면)를 기준으로 감시
-    rootMargin: '0px',
-    threshold: 0.15 // 요소가 화면에 15% 정도 보일 때 작동
+// ✅ 1. 중앙 STATE 객체 - 모든 상태를 한 곳에서 관리
+const STATE = {
+  isMenuOpen: false,
+  isDarkMode: false,
+  isFormValid: false,
+  repos: [],          // 저장소 데이터
+  isLoading: false,   // 로딩 중 여부
+  hasError: false,    // 에러 발생 여부
 };
 
-// 2. 감시자 생성
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        // 요소가 화면에 들어왔는지 확인
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); // visible 클래스 추가하여 애니메이션 실행
-            observer.unobserve(entry.target); // 한 번 실행된 후에는 감시 중지 (계속 반복하려면 이 줄 삭제)
-        }
-    });
-}, observerOptions);
+// ============================
+// 🌙 다크모드
+// ============================
+const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-// 3. HTML에서 fade-in 클래스를 가진 모든 요소 찾기
-const fadeElements = document.querySelectorAll('.fade-in');
-
-// 4. 찾은 요소들을 하나씩 감시자에게 관찰하라고 명령
-fadeElements.forEach(el => {
-    observer.observe(el);
+darkModeToggle.addEventListener('click', () => {
+  STATE.isDarkMode = !STATE.isDarkMode;           // STATE로 관리
+  document.body.classList.toggle('dark-mode', STATE.isDarkMode);
+  darkModeToggle.textContent = STATE.isDarkMode ? '☀️' : '🌙';
 });
+
+// ============================
+// 🍔 햄버거 메뉴
+// ============================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  STATE.isMenuOpen = !STATE.isMenuOpen;           // STATE로 관리
+  navMenu.classList.toggle('open', STATE.isMenuOpen);
+});
+
+// ============================
+// 📋 Contact 폼 유효성 검사
+// ============================
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // STATE로 유효성 상태 관리 (기존 isValid 대체)
+  STATE.isFormValid =
+    name !== '' &&
+    email !== '' &&
+    emailRegex.test(email) &&
+    message !== '';
+
+  if (!STATE.isFormValid) {
+    alert('모든 항목을 올바르게 입력해주세요.');
+    return;
+  }
+
+  alert('메시지가 전송되었습니다! 감사합니다 😊');
+  form.reset();
+  STATE.isFormValid = false;  // 전송 후 초기화
+});
+
+// ============================
+// 🐙 GitHub API - 저장소 불러오기
+// ============================
+async function fetchRepositories() {
+  const container = document.getElementById('github-projects');
+
+  // STATE 업데이트 후 렌더
+  STATE.isLoading = true;
+  STATE.hasError = false;
+  renderProjects(container);  // 로딩 화면 렌더
+
+  try {
+    const response = await fetch(
+      'https://api.github.com/users/본인계정아이디/repos?sort=updated'
+    );
+
+    if (!response.ok) throw new Error('응답 오류');
+
+    const data = await response.json();
+
+    // ✅ 2. filter: fork된 저장소 제외 (내가 직접 만든 것만)
+    const filtered = data.filter(repo => !repo.fork);
+
+    // ✅ 3. map: 저장소 데이터를 HTML 카드 문자열 배열로 변환
+    const cardHTMLList = filtered.map(repo => `
+      <div class="project-card">
+        <h3>${repo.name}</h3>
+        <p>${repo.description || '설명이 없습니다.'}</p>
+        <div class="card-footer">
+          <span>⭐ ${repo.stargazers_count}</span>
+          <a href="${repo.html_url}" target="_blank" rel="noopener">자세히 보기</a>
+        </div>
+      </div>
+    `);
+
+    // STATE에 저장
+    STATE.repos = cardHTMLList;
+    STATE.isLoading = false;
+
+  } catch (error) {
+    console.error('Error:', error);
+    STATE.hasError = true;
+    STATE.isLoading = false;
+  }
+
+  // 최종 렌더
+  renderProjects(container);
+}
+
+// ============================
+// 🖥 렌더 함수 - STATE 보고 화면 결정
+// ============================
+function renderProjects(container) {
+  // 로딩 중
+  if (STATE.isLoading) {
+    container.innerHTML = '<p class="loading">프로젝트를 불러오는 중입니다... ⏳</p>';
+    return;
+  }
+
+  // 에러 발생
+  if (STATE.hasError) {
+    container.innerHTML = '<p class="error">데이터를 불러오지 못했습니다. 😥</p>';
+    return;
+  }
+
+  // 빈 상태
+  if (STATE.repos.length === 0) {
+    container.innerHTML = `
+      <div class="empty-projects">
+        <p>아직 공개된 프로젝트가 없습니다. 📂</p>
+        <p>새로운 프로젝트를 준비 중이에요!</p>
+      </div>
+    `;
+    return;
+  }
+
+  // ✅ 정상 - map으로 만든 카드 배열을 join으로 합쳐서 한 번에 삽입
+  container.innerHTML = STATE.repos.join('');
+}
+
+// 실행
+fetchRepositories();
