@@ -10,11 +10,14 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
 
-### onclick 웹 페이지의 요소를 클릭할 때 발생하는 마우스 이벤트 속성
+### onclick 
+웹 페이지의 요소를 클릭할 때 발생하는 마우스 이벤트 속성
 
-### :root 전역 변수 영역 
+### :root 
+전역 변수 영역 
 
-#### var(--variable) CSS 변수 정의
+### var(--variable) 
+CSS 변수 정의
 
 ```
 --text-color: #ffffff; 
@@ -30,6 +33,7 @@ color: var(--text-color);
 
 ### const 
 한 번 값을 할당하면 재할당(값 변경)과 재선언을 할 수 없는 상수(Constant)를 선언하는 키워드
+
 생성과정 - 1. 선언 + 초기화 + 할당
       
 ### let
