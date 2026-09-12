@@ -9,7 +9,9 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
-## index.html
+# index.html
+
+
   
 ## 배열 전환 방식 map/filter
 원본 배열을 변경하지 않고 새로운 배열을 반환하는 메서드
@@ -20,8 +22,9 @@ allback 함수를 각각의 요소에 대해 한번씩 순서대로 불러 그 �
 ### filter
 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환
 
+___
 
-## CSS
+# CSS
   
   
 ## Flex VS Grid
@@ -82,6 +85,8 @@ color: var(--text-color);
 생성과정 - 1. 선언 2. 초기화 3. 할당
 
 
+___
+  
 opacity 0~1 투명도 0(invisible)~1(visible)
   
 ease-out: 빠르게 시작
