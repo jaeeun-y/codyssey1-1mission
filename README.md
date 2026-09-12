@@ -14,12 +14,10 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 
 ## CSS
 
-
-<img width="649" height="469" alt="image" src="https://github.com/user-attachments/assets/8a6b5aca-0e88-4f90-b8f6-fa0c13a91ad7" />
 <img width="447" height="395" alt="image" src="https://github.com/user-attachments/assets/0f1d43c2-6bc8-42d7-bf4d-dd9527e32698" />
 
 
-margin: object와 화면의 외부 여백
+margin: object와 화면의 외부 여백  
 padding: object 내의 내부여백
 
 ### onclick 
