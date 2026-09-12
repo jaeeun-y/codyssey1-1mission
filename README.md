@@ -10,6 +10,18 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
 
+
+
+## CSS
+
+
+<img width="649" height="469" alt="image" src="https://github.com/user-attachments/assets/8a6b5aca-0e88-4f90-b8f6-fa0c13a91ad7" />
+<img width="447" height="395" alt="image" src="https://github.com/user-attachments/assets/0f1d43c2-6bc8-42d7-bf4d-dd9527e32698" />
+
+
+margin: object와 화면의 외부 여백
+padding: object 내의 내부여백
+
 ### onclick 
 웹 페이지의 요소를 클릭할 때 발생하는 마우스 이벤트 속성
 
