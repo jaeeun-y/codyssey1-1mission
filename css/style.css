@@ -30,7 +30,11 @@ body {
 }
 
 main {
-    padding-top: 70px;
+    padding-top: 0px;  /* 또는 삭제 */
+}
+
+#hero {
+    padding-top: 70px;  /* header 높이만큼만 */
 }
 
 /* 섹션 기본 여백 */
