@@ -96,7 +96,7 @@ async function fetchRepositories() {
     `);
 
     // STATE에 저장
-    STATE.repos = cardHTMLList;
+    STATE.repos = filtered;
     STATE.isLoading = false;
 
   } catch (error) {
@@ -136,8 +136,18 @@ function renderProjects(container) {
     return;
   }
 
-  // ✅ 정상 - map으로 만든 카드 배열을 join으로 합쳐서 한 번에 삽입
-  container.innerHTML = STATE.repos.join('');
+  container.innerHTML = STATE.repos
+  .map(repo => `
+    <div class="project-card">
+      <h3>${repo.name}</h3>
+      <p>${repo.description || '설명이 없습니다.'}</p>
+      <div class="card-footer">
+        <span>⭐ ${repo.stargazers_count}</span>
+        <a href="${repo.html_url}" target="_blank" rel="noopener">자세히 보기</a>
+      </div>
+    </div>
+  `)
+  .join('');
 }
 
 // 실행
