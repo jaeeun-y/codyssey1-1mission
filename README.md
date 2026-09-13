@@ -9,9 +9,76 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
-# index.html
+___
+  
+# index.html (구조)
 
+head  
+header(nav)  
+main  
+footer  
+  
+  
+### 외부 스타일시트/JS 연결
+브라우저가 CSS파일을 읽음
+JS 파일 연결 (defer 속성으로 HTML이 모두 읽힌 후 실행되게 함 -> 웹페이지의 로딩 속도를 높이고,   
+자바스크립트가 HTML 요소를 찾지 못해 발생하는 오류를 방지)
+  
+```
+<link rel="stylesheet" href="style.css">
 
+- rel="stylesheet": 연결할 파일이 스타일시트 임을 정의
+- href="파일경로": 연결할 CSS 파일의 위치(경로)
+  
+<script src="js/main.js" defer></script>
+  
+- <script>: JS코드라고 브라우저에게 알리는 태그
+- src: 연결할 JS파일의 위치(경로)
+```
+
+**aria-label**: 화면에 텍스트가 표시되지 않는 요소에 대한 텍스트 대안을 제공하는데 사용   
+aria-label="메뉴 열기">☰
+  
+**cursor:pointer**: 마우스를 올렸을 때 클릭할 수 있는 버튼이라고 인지하게 하는 UX 설정
+  
+```
+HTML  
+<button id="dark-mode-toggle">🌙</button>
+  
+JS  
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+```
+  
+**alt 속성**  
+네트워크 오류나 이미지 주소 오류로 이미지를 불러오지 못할 때 텍스트로 대체해 보여줍니다.
+
+**class:"project-grid"**  
+```
+CSS
+  
+.projects-grid {
+  display: grid; /* 격자 모양으로 정렬 */
+  grid-template-columns: repeat(3, 1fr); /* 가로로 3개씩 균등하게 배치 */
+  gap: 20px; /* 상자 사이의 간격은 20바이트(픽셀) */
+}
+```
+
+**< form >**  
+```
+<form id="contact-form">  
+```
+  
+사용자가 글자를 적는 **< input >**, 내용을 적는 **< textarea >**, 전송하는 **< button >** 등이 함께 들어감.  
+**placeholder**="이름을 입력하세요": 값이 들어갈 자리에 임시로 채워 놓는 텍스트나 이미지  
+  
+**< span >**: 문장 속 텍스트의 일부분만 꾸밀 때 사용.  
+  
+```
+const nameError = document.getElementById('name-error');
+nameError.textContent = '⚠️ 이름을 입력해야 합니다.';
+```  
+  
   
 ## 배열 전환 방식 map/filter
 원본 배열을 변경하지 않고 새로운 배열을 반환하는 메서드
@@ -23,8 +90,8 @@ allback 함수를 각각의 요소에 대해 한번씩 순서대로 불러 그 �
 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환
 
 ___
-
-# CSS
+  
+# CSS (디자인)
   
   
 ## Flex VS Grid
@@ -93,3 +160,7 @@ ease-out: 빠르게 시작
 ease-in : 천천히 시작
   
 <img width="1280" height="320" alt="image" src="https://github.com/user-attachments/assets/55975b64-e846-4df5-bf3a-4e8e658681c4" />
+
+___
+  
+### JS (기능)
