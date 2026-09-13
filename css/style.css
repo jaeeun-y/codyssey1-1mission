@@ -29,6 +29,10 @@ body {
     transition: background-color 0.3s, color 0.3s; /* 색이 바뀔 때 부드럽게 */
 }
 
+main {
+    padding-top: 70px;
+}
+
 /* 섹션 기본 여백 */
 section {
     padding: 60px var(--spacing);
