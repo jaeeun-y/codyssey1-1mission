@@ -73,7 +73,7 @@ async function fetchRepositories() {
 
   try {
     const response = await fetch(
-      'https://api.github.com/users/본인계정아이디/repos?sort=updated'
+      'https://api.github.com/users/jaeeun-y/repos?sort=updated'
     );
 
     if (!response.ok) throw new Error('응답 오류');
