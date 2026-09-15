@@ -159,7 +159,7 @@ form.addEventListener('submit', (e) => {
   STATE.isFormValid = false;
 });
 
-// 입력하는 동안 실시간으로 에러 메시지 제거
+// 사용자가 다시 타이핑을 시작하면 에러 메시지 제거
 const errorFieldMap = {
   name: nameError,
   email: emailError,
