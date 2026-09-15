@@ -1,16 +1,19 @@
 
 
-https://jaeeun-y.github.io/codyssey1-1mission/
+https://jaeeun-y.github.io/codyssey1-1mission/  
+  
+  
+  
 
+<img width="1909" height="1080" alt="스크린샷(2)" src="https://github.com/user-attachments/assets/736446c9-b94c-447a-b97d-8078e32fda93" />  
+  
+<img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />  
 
-
-
-<img width="1909" height="1080" alt="스크린샷(2)" src="https://github.com/user-attachments/assets/736446c9-b94c-447a-b97d-8078e32fda93" />
-
-<img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
-
-
-
+<img width="1916" height="998" alt="image" src="https://github.com/user-attachments/assets/39cc9e6f-97d1-4d5b-9057-c7be0a5e7d88" />  
+  
+  
+___
+  
 템플릿 리터럴: 백틱(`)을 사용해 문자열을 감싸서 다루는 문법.  
   
 구조 분해 할당: 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 손쉽게 담을 수 있게 하는 표현식.  
