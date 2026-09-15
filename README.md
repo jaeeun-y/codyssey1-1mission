@@ -9,46 +9,42 @@ https://jaeeun-y.github.io/codyssey1-1mission/
 
 <img width="1926" height="1080" alt="스크린샷(3)" src="https://github.com/user-attachments/assets/f457a15d-1291-4398-b9a9-ed383ccbdb74" />
 
+
+  
 ___
+
   
 # index.html (구조)
 
+**시맨틱 태그**: 포함된 콘텐츠의 특정 의미를 정의하고 목적을 갖는 태그   
+                -> 구조와 목적을 쉽게 파악 가능함  
+  
 head  
 header(nav)  
 main  
 footer  
   
   
-### 외부 스타일시트/JS 연결
-브라우저가 CSS파일을 읽음
-JS 파일 연결 (defer 속성으로 HTML이 모두 읽힌 후 실행되게 함 -> 웹페이지의 로딩 속도를 높이고,   
-자바스크립트가 HTML 요소를 찾지 못해 발생하는 오류를 방지)
+### 외부 스타일시트/JS 연결  
   
-```
-<link rel="stylesheet" href="style.css">
+브라우저가 CSS파일을 읽음
+JS 파일 연결 (defer 속성 -> 웹페이지의 로딩 속도를 높이고, 자바스크립트가 HTML 요소를 찾지 못해 발생하는 오류를 방지)  
+  
+**<link rel="stylesheet" href="style.css">**
 
-- rel="stylesheet": 연결할 파일이 스타일시트 임을 정의
+- <link rel>="stylesheet": 현재 문서와 외부 리소스의 관계, 스타일시트 임을 정의
 - href="파일경로": 연결할 CSS 파일의 위치(경로)
   
-<script src="js/main.js" defer></script>
+**<script src="js/main.js" defer></script>**
   
 - <script>: JS코드라고 브라우저에게 알리는 태그
 - src: 연결할 JS파일의 위치(경로)
-```
+
 
 **aria-label**: 화면에 텍스트가 표시되지 않는 요소에 대한 텍스트 대안을 제공하는데 사용   
 aria-label="메뉴 열기">☰
   
-**cursor:pointer**: 마우스를 올렸을 때 클릭할 수 있는 버튼이라고 인지하게 하는 UX 설정
-  
-```
-HTML  
-<button id="dark-mode-toggle">🌙</button>
-  
-JS  
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-```
+**cursor:pointer**: 마우스를 올렸을 때 클릭할 수 있는 버튼이라고 인지하게 하는 UX 설정  
   
 **alt 속성**  
 네트워크 오류나 이미지 주소 오류로 이미지를 불러오지 못할 때 텍스트로 대체해 보여줍니다.
@@ -164,3 +160,21 @@ ease-in : 천천히 시작
 ___
   
 ### JS (기능)
+
+
+**DOM** Document Object Model 문서 객체 모델  
+  
+문서 객체: <html>이나 <body> 같은 html문서의 태그들을 JavaScript가 이용할 수 있는 객체(object)로 만든 것.
+
+```
+HTML
+<button id="dark-mode-toggle">🌙</button>
+
+JS
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+```
+
+<img width="638" height="479" alt="image" src="https://github.com/user-attachments/assets/3968e9fe-8150-4163-93e2-4e48323cd1ae" />  
+트리 구조로 형성되어 있는 DOM  
+
+**DOM 요소 캐싱**: 자바스크립트로 웹 페이지를 제어할 때 반복해서 사용되는 DOM 요소를 변수에 저장해 두고 재사용하는 성능 최적화 기법  
