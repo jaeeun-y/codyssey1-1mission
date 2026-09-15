@@ -52,7 +52,7 @@ hamburger.addEventListener('click', () => {
 // 메뉴 링크 클릭 → 부드러운 스크롤 + (모바일이면) 메뉴 자동 닫기
 navLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 기본 동작인 순간이동 멈춤
     const targetSection = document.querySelector(link.getAttribute('href'));
 
     if (STATE.isMenuOpen) {
@@ -60,7 +60,7 @@ navLinks.forEach((link) => {
       navMenu.classList.remove('active');
     }
 
-    targetSection?.scrollIntoView({ behavior: 'smooth' });
+    targetSection?.scrollIntoView({ behavior: 'smooth' }); // targetSection이 존재하면 실행, null이면 에러 없이 그냥 넘어감
   });
 });
 
@@ -68,7 +68,7 @@ navLinks.forEach((link) => {
 // 📜 스크롤 이벤트 (네비 배경 변경 + 스크롤 탑 버튼 노출)
 // ============================
 const SCROLL_NAV_THRESHOLD = 60;   // 이 값 이상 스크롤하면 네비 배경 변경
-const SCROLL_TOP_THRESHOLD = 300;  // 이 값 이상 스크롤하면 탑 버튼 노출
+const SCROLL_TOP_THRESHOLD = 300;  // 이 값 이상 스크롤하면 위로가기 버튼 노출
 
 window.addEventListener('scroll', () => {
   const { scrollY } = window;
