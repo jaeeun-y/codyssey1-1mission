@@ -176,27 +176,27 @@ const errorFieldMap = {
 async function fetchRepositories() {
   const container = document.getElementById('github-projects');
 
-  STATE.isLoading = true;
+  STATE.isLoading = true; // 프로젝트를 불러오는 중입니다... ⏳
   STATE.hasError = false;
   renderProjects(container); // 로딩 화면 렌더
 
   try {
-    const response = await fetch(
+    const response = await fetch( // GitHub 서버에 목록을 요청하고 서버 응답이 올 때까지 기다림.
       `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated`
     );
 
     if (!response.ok) throw new Error('응답 오류');
 
-    const data = await response.json();
+    const data = await response.json(); // 자바스크립트가 읽기 편한 데이터 형태(JSON)로 조립.
 
     // fork된 저장소 제외 (내가 직접 만든 것만)
-    const filtered = data.filter((repo) => !repo.fork);
+    const filtered = data.filter((repo) => !repo.fork); // STATE.repos 저장소에 담음.
 
     STATE.repos = filtered;
     STATE.isLoading = false;
   } catch (error) {
     console.error('Error:', error);
-    STATE.hasError = true;
+    STATE.hasError = true; // 프로젝트를 불러올 수 없습니다. 😥
     STATE.isLoading = false;
   }
 
