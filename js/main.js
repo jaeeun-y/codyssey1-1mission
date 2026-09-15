@@ -71,7 +71,7 @@ const SCROLL_NAV_THRESHOLD = 60;   // 이 값 이상 스크롤하면 네비 배�
 const SCROLL_TOP_THRESHOLD = 300;  // 이 값 이상 스크롤하면 위로가기 버튼 노출
 
 window.addEventListener('scroll', () => {
-  const { scrollY } = window;
+  const { scrollY } = window; // 몇 픽셀(px)이나 내려왔는지 숫자로 측정
 
   header.classList.toggle('scrolled', scrollY > SCROLL_NAV_THRESHOLD);
   scrollTopBtn.style.display = scrollY > SCROLL_TOP_THRESHOLD ? 'block' : 'none';
@@ -85,11 +85,11 @@ scrollTopBtn.addEventListener('click', () => {
 // 👀 Intersection Observer - 스크롤 등장 애니메이션
 // (이게 없어서 About 이하 섹션들이 계속 투명 상태였습니다)
 // ============================
-const sectionObserver = new IntersectionObserver(
+const sectionObserver = new IntersectionObserver( // (콜백함수, 옵션)
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add('visible'); // entry.target=지금 이 entry가 어떤 요소에 대한 정보인지 알림
         sectionObserver.unobserve(entry.target); // 한 번 나타나면 관찰 종료
       }
     });
@@ -97,7 +97,7 @@ const sectionObserver = new IntersectionObserver(
   { threshold: 0.2 }
 );
 
-fadeSections.forEach((section) => sectionObserver.observe(section));
+fadeSections.forEach((section) => sectionObserver.observe(section)); // 변화가 생길 때마다 자동으로 콜백 함수를 실행
 
 // ============================
 // 📋 Contact 폼 유효성 검사 (필드별 에러 메시지 표시)
