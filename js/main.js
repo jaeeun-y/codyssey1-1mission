@@ -1,4 +1,3 @@
-// ✅ GitHub 아이디는 본인 것으로 바꿔주세요
 const GITHUB_USERNAME = 'jaeeun-y';
 
 // ✅ 1. 중앙 STATE 객체 - 모든 상태를 한 곳에서 관리
@@ -12,7 +11,7 @@ const STATE = {
 };
 
 // ============================
-// 📌 DOM 요소 캐싱
+// 📌 DOM 요소 캐싱 - 반복해서 사용되는 DOM 요소를 변수에 저장해 두고 재사용
 // ============================
 const header = document.querySelector('header');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
